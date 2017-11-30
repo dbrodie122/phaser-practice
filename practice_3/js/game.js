@@ -10,6 +10,7 @@ function preload() {
 
 function create() {
   twoLayersOfRect(3);
+
   // graphics.beginFill(0xFF700B, 1);
   // graphics.drawRect(50, 250, 100, 100);
   //redish border
@@ -48,15 +49,23 @@ function twoLayersOfRect(num) {
       var rect = game.add.graphics(100,100);
       rect.beginFill(0xFF700B, 1);
       rect.drawRect(xPos, yPos, 100, 100);
+      // rect.click(handleClick);
+      var sprite = game.add.sprite(0,0, rect);
+      console.log(rect);
       layer1.push(rect);
 
       var rect2 = game.add.graphics(100, 100);
       rect2.beginFill(0xFF700B, 1);
       rect2.drawRect(xPos, yPos2, 100, 100);
+      // rect2.click(handleClick);
       layer2.push(rect2);
       xPos += 200
     }
     twoLayers.push(layer1);
     twoLayers.push(layer2);
     console.log(twoLayers);
+  }
+
+  function handleClick() {
+    console.log('clicked!')
   }
